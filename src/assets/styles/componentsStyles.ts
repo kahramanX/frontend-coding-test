@@ -17,6 +17,14 @@ const HeaderContainer = styled.header`
       }
     }
   }
+
+  .sidebar.true {
+    display: block;
+  }
+
+  .sidebar.false {
+    display: none;
+  }
 `;
 
 const HeaderTitle = styled.span`
@@ -65,6 +73,26 @@ const Button = styled.button`
   }
 `;
 
+const SidebarContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 100vh;
+  background-color: yellow;
+  border: 4px solid black;
+  background-color: white;
+`;
+
+const SidebarTitle = styled.div`
+  font-size: 22px;
+  font-weight: 600;
+  padding: 18px;
+  display: flex !important;
+  justify-content: space-between !important;
+  border-bottom: 4px solid black;
+`;
+
 export {
   HeaderContainer,
   HeaderTitle,
@@ -74,4 +102,6 @@ export {
   BodyContainer,
   Count,
   Button,
+  SidebarContainer,
+  SidebarTitle,
 };

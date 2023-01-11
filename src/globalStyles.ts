@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: system-ui, Open-Sans, Helvetica, Sans-Serif;
   }
+
+
 `;
 
 export default GlobalStyle;
