@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ count }) => {
         <HamburgerIcon />
       </HeaderLeft>
       <HeaderRight>
-        <HeaderTitle>Remaining Time:</HeaderTitle>
+        <HeaderTitle>Time:</HeaderTitle>
         <HeaderTime>{count}</HeaderTime>
       </HeaderRight>
       <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
