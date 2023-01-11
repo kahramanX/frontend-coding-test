@@ -1,17 +1,16 @@
-import { memo } from "react";
-import styled from "styled-components";
+import { memo, useState } from "react";
 import GlobalStyles from "./globalStyles";
-
-const Title = styled.h1`
-  color: #666;
-`;
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 function App() {
+  const [count, setCount] = useState<number>(15);
+
   return (
     <>
       <GlobalStyles />
-      <Title>Welcome</Title>
-      <p>Use this as a starting point to develop your own application :-)</p>
+      <Header count={count} />
+      <Body setCount={setCount} count={count} />
     </>
   );
 }
