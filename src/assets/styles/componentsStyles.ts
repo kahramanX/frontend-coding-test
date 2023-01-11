@@ -7,7 +7,7 @@ const HeaderContainer = styled.header`
   height: 100px;
   border: 4px solid black;
 
-  @media (max-width: 425px) {
+  @media (max-width: 500px) {
     div {
       &:first-child {
         display: block;
