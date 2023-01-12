@@ -12,9 +12,10 @@ import Sidebar from "../components/Sidebar";
 type Props = {
   count: number;
   setThemeMode: React.Dispatch<React.SetStateAction<"light" | "dark" | string>>;
+  themeMode: "light" | "dark" | string;
 };
 
-const Header: React.FC<Props> = ({ count, setThemeMode }) => {
+const Header: React.FC<Props> = ({ count, setThemeMode, themeMode }) => {
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
 
   return (
@@ -35,6 +36,7 @@ const Header: React.FC<Props> = ({ count, setThemeMode }) => {
           onChange={e => {
             setThemeMode(e.target.value);
           }}
+          defaultValue={themeMode}
         >
           <option value={"light"}>Light</option>
           <option value={"dark"}>Dark</option>

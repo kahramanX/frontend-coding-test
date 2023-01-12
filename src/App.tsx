@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import GlobalStyles, { lightTheme, darkTheme } from "./globalStyles";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
@@ -10,11 +10,29 @@ function App() {
     "light"
   );
 
+  function _detectBrowserThemeMode() {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      // Dark
+      setThemeMode("dark");
+    } else {
+      // Light
+      setThemeMode("light");
+    }
+  }
+
+  useEffect(() => {
+    _detectBrowserThemeMode();
+  }, [window.matchMedia("(prefers-color-scheme: dark)").matches]);
+
   return (
     <>
       <ThemeProvider theme={themeMode == "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
-        <Header count={count} setThemeMode={setThemeMode} />
+        <Header
+          count={count}
+          setThemeMode={setThemeMode}
+          themeMode={themeMode}
+        />
         <Body setCount={setCount} count={count} />
       </ThemeProvider>
     </>
