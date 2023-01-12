@@ -1,16 +1,22 @@
 import { memo, useState } from "react";
-import GlobalStyles from "./globalStyles";
+import GlobalStyles, { lightTheme, darkTheme } from "./globalStyles";
+import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Body from "./components/Body";
 
 function App() {
   const [count, setCount] = useState<number>(15);
+  const [themeMode, setThemeMode] = useState<"light" | "dark" | string>(
+    "light"
+  );
 
   return (
     <>
-      <GlobalStyles />
-      <Header count={count} />
-      <Body setCount={setCount} count={count} />
+      <ThemeProvider theme={themeMode == "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <Header count={count} setThemeMode={setThemeMode} />
+        <Body setCount={setCount} count={count} />
+      </ThemeProvider>
     </>
   );
 }

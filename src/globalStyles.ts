@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, DefaultTheme } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -8,10 +8,27 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: system-ui, Open-Sans, Helvetica, Sans-Serif;
+    font-family: system-ui, Helvetica, Sans-Serif;
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
+    transition: background 0.2s ease-in, color 0.2s ease-in, border 0.2s ease-in;
   }
-
-
 `;
+
+export const lightTheme: DefaultTheme = {
+  colors: {
+    background: "white",
+    text: "black",
+    borderColor: "black",
+  },
+};
+
+export const darkTheme: DefaultTheme = {
+  colors: {
+    background: "black",
+    text: "white",
+    borderColor: "white",
+  },
+};
 
 export default GlobalStyle;

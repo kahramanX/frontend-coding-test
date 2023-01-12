@@ -9,9 +9,12 @@ import {
 import { HamburgerIcon } from "../assets/icons/icons";
 import Sidebar from "../components/Sidebar";
 
-type Props = { count: number };
+type Props = {
+  count: number;
+  setThemeMode: React.Dispatch<React.SetStateAction<"light" | "dark" | string>>;
+};
 
-const Header: React.FC<Props> = ({ count }) => {
+const Header: React.FC<Props> = ({ count, setThemeMode }) => {
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
 
   return (
@@ -27,6 +30,16 @@ const Header: React.FC<Props> = ({ count }) => {
         <HeaderTitle>Time:</HeaderTitle>
         <HeaderTime>{count}</HeaderTime>
       </HeaderRight>
+      <div>
+        <select
+          onChange={e => {
+            setThemeMode(e.target.value);
+          }}
+        >
+          <option value={"light"}>Light</option>
+          <option value={"dark"}>Dark</option>
+        </select>
+      </div>
       <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
     </HeaderContainer>
   );
